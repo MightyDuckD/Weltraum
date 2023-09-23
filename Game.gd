@@ -30,3 +30,5 @@ func update_ui():
 	$FuelProgress.value = 100*(state.fuel / state.tankSize)
 	
 	$EnginePower.button_pressed = state.engineRunning
+	
+	$Background/CPUParticles2D.speed_scale = state.speed / 100

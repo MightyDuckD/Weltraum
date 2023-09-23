@@ -1,4 +1,7 @@
-extends Node2D
+extends StaticBody3D
+
+
+var progress = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,9 +14,7 @@ func _process(delta):
 	pass
 
 
-func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Game.tscn")
-
-
-func _on_button_2_pressed():
-	get_tree().change_scene_to_file("res://Test.tscn")
+func setProgress(text: String):
+	$Label3D.text = text
+	
+	

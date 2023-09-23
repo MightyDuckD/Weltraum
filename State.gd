@@ -8,10 +8,10 @@ var damage = 0.0
 var hull = 100.0
 
 var engineRunning = false
-var enginePower = 10
+var enginePower = 30
 
 var baseFuelConsumption = 0.7
-var shipAeroFactor = 0.9999
+var shipAeroFactor = 0.995
 
 var speedTarget = 300000000
 

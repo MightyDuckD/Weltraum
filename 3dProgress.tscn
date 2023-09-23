@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://eqi7fwvvbge"]
+
+[ext_resource type="Script" path="res://3dProgress.gd" id="1_ku7wd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_avdrl"]
+size = Vector3(1, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q32y"]
+albedo_color = Color(0.294118, 0.466667, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xurdo"]
+size = Vector3(0.87, 0.095, 0.045)
+
+[node name="3dProgress" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0253832, -3.57628e-07, -0.00363469)
+script = ExtResource("1_ku7wd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_avdrl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.905836, 0, 0, 0, 0.843711, 0, 0, 0, 0.800411, 0, 0, 0.0345779)
+mesh = SubResource("BoxMesh_avdrl")
+surface_material_override/0 = SubResource("StandardMaterial3D_2q32y")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.416638, 0, 0.115634)
+pixel_size = 0.004
+text = "test"
+horizontal_alignment = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.123518)
+shape = SubResource("BoxShape3D_xurdo")

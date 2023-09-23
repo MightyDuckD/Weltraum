@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fipmy46sci25"
+path="res://.godot/imported/emitter.obj-370f556acf8047897ae6b6c2b13fd0e6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/emitter.obj-370f556acf8047897ae6b6c2b13fd0e6.mesh"]
+
+source_file="res://emitter.obj"
+dest_files=["res://.godot/imported/emitter.obj-370f556acf8047897ae6b6c2b13fd0e6.mesh", "res://.godot/imported/emitter.obj-370f556acf8047897ae6b6c2b13fd0e6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
