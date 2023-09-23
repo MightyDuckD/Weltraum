@@ -1,3 +1,65 @@
-[gd_scene format=3 uid="uid://c4vvdvhijb77q"]
+[gd_scene load_steps=5 format=3 uid="uid://c4vvdvhijb77q"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_5tkae"]
+[ext_resource type="PackedScene" uid="uid://c0pd56x4yys8p" path="res://State.tscn" id="2_8dbgt"]
+[ext_resource type="Texture2D" uid="uid://dioryvhdsnpen" path="res://assets/hull.png" id="3_mt6gp"]
+[ext_resource type="Texture2D" uid="uid://43w1dyh55mxd" path="res://assets/bg.png" id="4_has7e"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_5tkae")
+
+[node name="ShipHull" type="Sprite2D" parent="."]
+position = Vector2(573, 336)
+scale = Vector2(0.779401, 0.618103)
+texture = ExtResource("4_has7e")
+
+[node name="SpeedProgress" type="ProgressBar" parent="."]
+offset_left = 28.0
+offset_top = 541.0
+offset_right = 194.0
+offset_bottom = 568.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="SpeedProgress"]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 154.0
+offset_bottom = 24.0
+
+[node name="EnginePower" type="CheckButton" parent="."]
+offset_left = 950.0
+offset_top = 598.0
+offset_right = 1104.0
+offset_bottom = 629.0
+text = "engine power"
+
+[node name="State" parent="." instance=ExtResource("2_8dbgt")]
+
+[node name="FuelProgress" type="ProgressBar" parent="."]
+offset_left = 965.0
+offset_top = 570.0
+offset_right = 1091.0
+offset_bottom = 597.0
+
+[node name="Label" type="Label" parent="FuelProgress"]
+offset_top = -26.0
+offset_right = 40.0
+text = "fuel"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(374, 529)
+
+[node name="Hull" type="TextureProgressBar" parent="Node2D"]
+offset_left = -4.0
+offset_top = 21.0
+offset_right = 127.0
+offset_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource("3_mt6gp")
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_right = 40.0
+offset_bottom = 26.0
+text = "Hull"
+
+[connection signal="toggled" from="EnginePower" to="." method="_on_check_button_toggled"]
