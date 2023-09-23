@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://skw2ddn1uvo4"]
+
+[ext_resource type="Script" path="res://3dToggle.gd" id="1_n4haa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e868n"]
+size = Vector3(1.275, 0.3, 0.06)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ysuv"]
+size = Vector3(1.37, 0.305, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ccq5t"]
+albedo_color = Color(0.529412, 0.0509804, 0.105882, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hpsf0"]
+size = Vector3(0.14, 0.115, 0.18)
+
+[node name="3dToggle" type="StaticBody3D"]
+script = ExtResource("1_n4haa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120294, 0, 0.126553)
+shape = SubResource("BoxShape3D_e868n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999841, 0.0178363, 0, -0.0178363, 0.999841, 0.00186473, -0.00312082, 0.000855744)
+mesh = SubResource("BoxMesh_6ysuv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.579506, -0.0679148, 0.0796009)
+material_override = SubResource("StandardMaterial3D_ccq5t")
+mesh = SubResource("BoxMesh_hpsf0")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38558, 0.0145881, 0.154974)
+pixel_size = 0.004
+text = "test"
+horizontal_alignment = 0
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0075528)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

@@ -39,6 +39,7 @@ offset_bottom = 568.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="SpeedProgress"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 1.0
 offset_right = 154.0
@@ -60,6 +61,7 @@ offset_right = 1091.0
 offset_bottom = 597.0
 
 [node name="Label" type="Label" parent="FuelProgress"]
+layout_mode = 0
 offset_top = -26.0
 offset_right = 40.0
 text = "fuel"

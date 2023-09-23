@@ -11,7 +11,7 @@ var engineRunning = false
 var enginePower = 30
 
 var baseFuelConsumption = 0.7
-var shipAeroFactor = 0.995
+var shipAeroFactor = 0.9999995
 
 var speedTarget = 300000000
 

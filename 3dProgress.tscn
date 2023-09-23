@@ -9,7 +9,7 @@ size = Vector3(1, 0.2, 0.2)
 albedo_color = Color(0.294118, 0.466667, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xurdo"]
-size = Vector3(0.87, 0.095, 0.045)
+size = Vector3(0.87, 0.185, 0.045)
 
 [node name="3dProgress" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0253832, -3.57628e-07, -0.00363469)
@@ -29,6 +29,12 @@ pixel_size = 0.004
 text = "test"
 horizontal_alignment = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.123518)
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0075528)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.124)
 shape = SubResource("BoxShape3D_xurdo")
+
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

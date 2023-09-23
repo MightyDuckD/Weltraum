@@ -18,3 +18,11 @@ func setProgress(text: String):
 	$Label3D.text = text
 	
 	
+
+
+func _on_area_3d_mouse_entered():
+	$Label3D.outline_modulate = Color.GREEN_YELLOW
+
+
+func _on_area_3d_mouse_exited():
+	$Label3D.outline_modulate = Color.BLACK
