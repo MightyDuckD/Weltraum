@@ -50,7 +50,8 @@ func update_ui():
 	
 	$GUI/EnginePower.button_pressed = state.engineRunning
 	$Ship/EngineToggle.setPressed(state.engineRunning)
-	$Ship/EngineToggle.setText("Engine Power")
+	$Ship/EngineToggle.setText("Engine started")
+	$Ship/Upgrade.setText("Upgrade!")
 	
 	$CustomStarMap.set_speed(state.speed)
 	
@@ -67,7 +68,7 @@ func _on_engine_toggle_toggle_changed(old_value, new_value):
 
 func _on_engine_upgrade_pressed():
 	$State.enginePower += 30
-	$State.enginePower *= 1.2
+	$State.enginePower *= 1.1
 
 
 
@@ -81,3 +82,9 @@ func shake():
 	$Camera3D.rotation.x = max_roll * amount * randf_range(-1, 1)
 	$Camera3D.h_offset = max_offset.x * amount * randf_range(-1, 1)
 	$Camera3D.v_offset = max_offset.y * amount * randf_range(-1, 1)
+
+
+func _on_upgrade_on_pressed():
+	$State.enginePower += 30
+	$State.enginePower *= 1.1
+	

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://23aw325mvt4p"]
+
+[ext_resource type="Script" path="res://3dButton.gd" id="1_u568m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5a1yo"]
+size = Vector3(0.925, 0.84, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uc5pb"]
+size = Vector3(1, 0.94, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb3cp"]
+albedo_color = Color(0.180392, 0.286275, 0.411765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fc4jd"]
+size = Vector3(0.595, 0.535, 0.18)
+
+[node name="3dButton" type="StaticBody3D"]
+script = ExtResource("1_u568m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0632221, 0, 0.126553)
+shape = SubResource("BoxShape3D_5a1yo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999841, 0.0178363, 0, -0.0178363, 0.999841, 0.0591407, 0.00716808, -0.000883341)
+mesh = SubResource("BoxMesh_uc5pb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0370042, 0.0710802, 0.0891486)
+material_override = SubResource("StandardMaterial3D_kb3cp")
+mesh = SubResource("BoxMesh_fc4jd")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0178154, -0.304519, 0.153261)
+pixel_size = 0.004
+text = "test"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
