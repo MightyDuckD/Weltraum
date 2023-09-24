@@ -25,15 +25,14 @@ func set_speed(speed):
 	
 	$GPUParticles3D.lifetime = 170 * (1 / (1 + speed* 0.01))
 
-	if speed > 40000:
-		$SquarPArt.visible = true
-		
+	$SquarPArt.scale.z = clamp((speed / 20000) - 1, 0,1) * 5
+	#if speed > 40000:
+	#	$SquarPArt.visible = false
 		#var sqmat = ($SquarPArt.process_material as ParticleProcessMaterial)
 		#sqmat.initial_velocity_min = speed / 25
 		#sqmat.initial_velocity_max = speed / 25
-		
-	else:
-		$SquarPArt.visible = false
+	#else:
+	#	$SquarPArt.visible = false
 	
 	var mat1 = ($GPUParticles3D.draw_pass_1 as SphereMesh).material as ShaderMaterial
 	mat1.set_shader_parameter("speed", sqrt(speed))
