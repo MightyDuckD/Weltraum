@@ -14,18 +14,33 @@ scale = Vector2(1.2194, 0.881888)
 text = "start"
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 195.0
-offset_top = 296.0
-offset_right = 328.0
-offset_bottom = 350.0
-text = "GO!"
+offset_left = 428.0
+offset_top = 468.0
+offset_right = 692.0
+offset_bottom = 522.0
+theme_override_font_sizes/font_size = 32
+text = "Start"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 366.0
-offset_top = 285.0
-offset_right = 931.0
-offset_bottom = 590.0
-text = "Start your engine and see how far you come - but be careful not to go too fast, Weltraum is only so big. "
+[node name="Label" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 248.0
+offset_right = 1015.0
+offset_bottom = 342.0
+theme_override_font_sizes/font_size = 32
+text = "Start your engine and see how far you can get.
+But be careful not to go too fast, Weltraum is only so big. "
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Label"]
+offset_left = -43.0
+offset_top = 120.0
+offset_right = 844.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(1, 0.45098, 0.384314, 1)
+theme_override_font_sizes/font_size = 20
+text = "PHOTOSENSITIVITY WARNING
+This game contains flashing lights."
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
