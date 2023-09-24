@@ -26,12 +26,7 @@ func update_ui():
 	$Ship/EngineToggle.setPressed(state.engineRunning)
 	$Ship/EngineToggle.setText("Engine Power")
 	
-	var mat = ($GPUParticles3D.process_material as ParticleProcessMaterial)
-	mat.initial_velocity_min = state.speed / 25
-	mat.initial_velocity_max = state.speed / 25
-	
-	var mesh = ($GPUParticles3D.draw_pass_1)  as SphereMesh
-	
+	$CustomStarMap.set_speed(state.speed)
 
 
 func _on_engine_power_toggled(button_pressed):
@@ -41,3 +36,8 @@ func _on_engine_power_toggled(button_pressed):
 
 func _on_engine_toggle_toggle_changed(old_value, new_value):
 	$State.toggle_engine(new_value)
+
+
+func _on_engine_upgrade_pressed():
+	$State.enginePower += 30
+	$State.enginePower *= 1.1
