@@ -7,13 +7,26 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var timeos = 0
 func _process(delta):
 	update_ui()
 	shake()
+	
+	timeos += delta
+	
+	if fin_time != null and timeos - fin_time > 5:
+		final_unloack = true
+		$Ship/Upgrade.setText("!!Restart!!")
+	
+	if final_unloack:
+		var fac = (sin(timeos ) + 1) / 2
+		($Ship/Upgrade/MeshInstance3D2.material_override as StandardMaterial3D).albedo_color = fac * Color.RED + (1-fac) * Color.WHITE
+		
+		
 	pass
 
 var rng = RandomNumberGenerator.new()
-
+var jitter = 0
 func update_ui():
 	var state = $State as Gamestate
 	
@@ -29,6 +42,19 @@ func update_ui():
 	else:
 		$Ship/SpeedProgress.setProgress("%10.4f m/s" % state.speed)
 	
+	if state.speed > 20000 * randf_range(0.8, 1):
+		$lightos.light_energy = 1 + (clamp(state.speed / 20000.0,1,1.3)-1) * sin(timeos * 20)
+		
+	if state.speed > 70000 and state.enginePower < 22795424:
+		var clm = clamp(state.speed / 70000 - 1,0,1)
+		
+		var fac = clm
+		$lightos.light_color = Color.WHITE * (1-fac) + Color.ORANGE_RED * fac
+	else:
+		$lightos.light_energy = 1
+		$lightos.light_color = Color.WHITE
+	if state.speed < 10000:
+		$lightos.light_energy = 1
 	
 #	if state.speed > 3000000:#
 #		trauma = 0.000#3
@@ -65,10 +91,11 @@ func _on_engine_power_toggled(button_pressed):
 func _on_engine_toggle_toggle_changed(old_value, new_value):
 	$State.toggle_engine(new_value)
 
+var final_unloack = false
+var fin_time = null
 
 func _on_engine_upgrade_pressed():
-	$State.enginePower += 30
-	$State.enginePower *= 1.1
+	upgrade()
 
 
 
@@ -85,6 +112,19 @@ func shake():
 
 
 func _on_upgrade_on_pressed():
+	upgrade()
+	
+	
+func upgrade():
+	
 	$State.enginePower += 30
 	$State.enginePower *= 1.1
+	
+	if $State.enginePower > 22795424 and fin_time == null:
+		fin_time = timeos
+		$final.visible = true
+		
+	if final_unloack: 
+		$final.visible = false
+		$restart.visible = true
 	

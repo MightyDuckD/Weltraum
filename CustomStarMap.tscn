@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://jxapjr1psp0c"]
+[gd_scene load_steps=10 format=3 uid="uid://jxapjr1psp0c"]
 
 [ext_resource type="Script" path="res://CustomStarMap.gd" id="1_jy7im"]
+[ext_resource type="ArrayMesh" uid="uid://bqrxt5kt8hwq1" path="res://sq.obj" id="3_o8whw"]
 [ext_resource type="Shader" path="res://Glow.gdshader" id="4_x5g5k"]
 
 [sub_resource type="Image" id="Image_insxt"]
@@ -37,6 +38,16 @@ height = 0.15
 radial_segments = 4
 rings = 3
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d22nl"]
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_min = 14.15
+scale_max = 14.15
+color = Color(0.807843, 0.8, 0, 1)
+
 [node name="CustomStarMap" type="Node3D"]
 script = ExtResource("1_jy7im")
 
@@ -49,3 +60,11 @@ speed_scale = 5.1
 collision_base_size = 0.24
 process_material = SubResource("ParticleProcessMaterial_3k54v")
 draw_pass_1 = SubResource("SphereMesh_kt8kw")
+
+[node name="SquarPArt" type="GPUParticles3D" parent="."]
+transform = Transform3D(5.89, 0, 0, 0, 5.89, 0, 0, 0, 5.89, 0, 0, -66.7706)
+amount = 15
+lifetime = 19.14
+preprocess = 7.45
+process_material = SubResource("ParticleProcessMaterial_d22nl")
+draw_pass_1 = ExtResource("3_o8whw")
