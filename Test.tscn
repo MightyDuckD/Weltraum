@@ -59,11 +59,12 @@ script = ExtResource("1_slj5n")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.232423, 0.00439489, -11.8527, -0.0119784, 11.855, 0.00416084, 11.8527, 0.0118945, 0.232428, 0, 0, -153.442)
-amount = 1113
-lifetime = 19.85
+amount = 6008
+lifetime = 136.15
 preprocess = 60.0
 speed_scale = 6.95
 randomness = 0.5
+collision_base_size = 0.66
 process_material = SubResource("ParticleProcessMaterial_2bfc5")
 draw_pass_1 = SubResource("SphereMesh_brtox")
 
@@ -93,6 +94,7 @@ omni_range = 61.025
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.58442)
 
 [node name="SpeedProgress" type="ProgressBar" parent="GUI"]
+visible = false
 offset_left = 28.0
 offset_top = 541.0
 offset_right = 194.0
@@ -100,6 +102,7 @@ offset_bottom = 568.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="GUI/SpeedProgress"]
+visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_top = 1.0
@@ -107,6 +110,7 @@ offset_right = 154.0
 offset_bottom = 24.0
 
 [node name="EnginePower" type="CheckButton" parent="GUI"]
+visible = false
 offset_left = 950.0
 offset_top = 598.0
 offset_right = 1104.0
@@ -114,18 +118,21 @@ offset_bottom = 629.0
 text = "engine power"
 
 [node name="FuelProgress" type="ProgressBar" parent="GUI"]
+visible = false
 offset_left = 965.0
 offset_top = 570.0
 offset_right = 1091.0
 offset_bottom = 597.0
 
 [node name="Label" type="Label" parent="GUI/FuelProgress"]
+visible = false
 layout_mode = 0
 offset_top = -26.0
 offset_right = 40.0
 text = "fuel"
 
 [node name="Node2D" type="Node2D" parent="GUI"]
+visible = false
 position = Vector2(374, 529)
 
 [node name="Hull" type="TextureProgressBar" parent="GUI/Node2D"]

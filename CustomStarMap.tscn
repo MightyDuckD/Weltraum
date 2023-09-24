@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jxapjr1psp0c"]
+
+[ext_resource type="Script" path="res://CustomStarMap.gd" id="1_jy7im"]
+
+[node name="CustomStarMap" type="Node3D"]
+script = ExtResource("1_jy7im")

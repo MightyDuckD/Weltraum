@@ -29,6 +29,9 @@ func update_ui():
 	var mat = ($GPUParticles3D.process_material as ParticleProcessMaterial)
 	mat.initial_velocity_min = state.speed / 25
 	mat.initial_velocity_max = state.speed / 25
+	
+	var mesh = ($GPUParticles3D.draw_pass_1)  as SphereMesh
+	
 
 
 func _on_engine_power_toggled(button_pressed):
