@@ -141,6 +141,7 @@ directional_shadow_mode = 0
 
 [node name="final" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.37316)
+visible = false
 text = "Congratulations, you escaped the Weltraum.
 
 It's too bad that there doesn't seem to be 

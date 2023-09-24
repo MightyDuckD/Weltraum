@@ -65,7 +65,7 @@ func update_ui():
 #	else: 
 #		trauma = 0
 
-	if state.engineRunning and state.enginePower < 22795424 + 1:
+	if state.engineRunning and state.enginePower < 22795424 - 10:
 		trauma = log(state.speed) / 1000.0
 	else:
 		trauma = 0
