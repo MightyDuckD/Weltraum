@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dimc40smyfv78"]
+[gd_scene load_steps=15 format=3 uid="uid://dimc40smyfv78"]
 
 [ext_resource type="Script" path="res://Test.gd" id="1_slj5n"]
 [ext_resource type="Texture2D" uid="uid://43w1dyh55mxd" path="res://assets/bg.png" id="1_ydk7v"]
@@ -21,6 +21,12 @@ background_energy_multiplier = 0.83
 ambient_light_source = 2
 ambient_light_color = Color(0.184314, 0.215686, 0.211765, 1)
 
+[sub_resource type="Gradient" id="Gradient_hgwgw"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tl0n4"]
+gradient = SubResource("Gradient_hgwgw")
+
 [node name="Test" type="Node3D"]
 script = ExtResource("1_slj5n")
 
@@ -29,6 +35,7 @@ script = ExtResource("1_slj5n")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.77049)
 visible = false
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("1_ydk7v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -153,6 +160,11 @@ visible = false
 text = "You can't restart.
 There isn't a second chance once 
 you've wrecked the universe."
+
+[node name="flash" type="Sprite3D" parent="."]
+transform = Transform3D(73.7187, 0, 0, 0, 84.8831, 0, 0, 0, 1, 0, 0, -1.4464)
+visible = false
+texture = SubResource("GradientTexture2D_tl0n4")
 
 [connection signal="toggled" from="GUI/EnginePower" to="." method="_on_engine_power_toggled"]
 [connection signal="pressed" from="GUI/EngineUpgrade" to="." method="_on_engine_upgrade_pressed"]

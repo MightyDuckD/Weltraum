@@ -14,6 +14,7 @@ func _process(delta):
 	
 	timeos += delta
 	
+	
 	if fin_time != null and timeos - fin_time > 5:
 		final_unloack = true
 		$Ship/Upgrade.setText("!!Restart!!")
@@ -66,7 +67,7 @@ func update_ui():
 #		trauma = 0
 
 	if state.engineRunning and state.enginePower < 22795424 - 10:
-		trauma = log(state.speed) / 1000.0
+		trauma = 2 * log(state.speed) / 1000.0
 	else:
 		trauma = 0
 	
@@ -114,14 +115,22 @@ func shake():
 func _on_upgrade_on_pressed():
 	upgrade()
 	
-	
+var cnt = 0
 func upgrade():
 	
-	$State.enginePower += 30
-	$State.enginePower *= 1.1
+	if $State.enginePower < 22795424 + 10 :
+		cnt = cnt + 1
+		$Ship/Upgrade.setBtnText(str(cnt))
+		$State.enginePower += 30
+		$State.enginePower *= 1.08
 	
 	if $State.enginePower > 22795424 and fin_time == null:
 		fin_time = timeos
+		var tween = get_tree().create_tween()
+		tween.tween_property($flash, "modulate", Color(1,1,1,1), 0.1)
+		tween.tween_property($flash, "modulate", Color(1,1,1,0), 0.6)
+		tween.tween_callback($flash.queue_free)
+		$flash.visible = true
 		$final.visible = true
 		
 	if final_unloack: 

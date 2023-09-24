@@ -19,6 +19,9 @@ func pressed():
 func setText(text):
 	$Label3D.text = text
 	
+func setBtnText(text):
+	$Label3D2.text = text
+	
 func _on_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == 1:
