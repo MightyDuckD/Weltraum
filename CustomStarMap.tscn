@@ -62,7 +62,7 @@ process_material = SubResource("ParticleProcessMaterial_3k54v")
 draw_pass_1 = SubResource("SphereMesh_kt8kw")
 
 [node name="SquarPArt" type="GPUParticles3D" parent="."]
-transform = Transform3D(5.89, 0, 0, 0, 5.89, 0, 0, 0, 5.89, 0, 0, -66.7706)
+transform = Transform3D(5.89, 0, 0, 0, 5.89, 0, 0, 0, 5.89, 0, 0, -98.5648)
 amount = 65
 lifetime = 20.68
 preprocess = 7.45
