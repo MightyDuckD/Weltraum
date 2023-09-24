@@ -27,8 +27,6 @@ initial_velocity_max = 613.25
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_21oj3"]
 render_priority = 0
 shader = ExtResource("4_x5g5k")
-shader_parameter/speed = null
-shader_parameter/colorseed = null
 
 [sub_resource type="SphereMesh" id="SphereMesh_kt8kw"]
 material = SubResource("ShaderMaterial_21oj3")

@@ -9,7 +9,8 @@ void vertex() {
 	
     // same as above for binormal and tangent, if normal mapping is used
 }
+
 void fragment() {
 	
-  	ALBEDO = vec3(1,0,1);
+  	ALBEDO = vec3(1,1,1);
 }

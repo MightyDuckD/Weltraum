@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://jxapjr1psp0c"]
+[gd_scene load_steps=11 format=3 uid="uid://jxapjr1psp0c"]
 
 [ext_resource type="Script" path="res://CustomStarMap.gd" id="1_jy7im"]
+[ext_resource type="Shader" path="res://Color.gdshader" id="3_qksmd"]
 [ext_resource type="Shader" path="res://Glow.gdshader" id="4_x5g5k"]
 
 [sub_resource type="Image" id="Image_insxt"]
@@ -24,18 +25,30 @@ gravity = Vector3(0, 0, 0)
 initial_velocity_min = 613.25
 initial_velocity_max = 613.25
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_21oj3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdr46"]
+render_priority = 0
+shader = ExtResource("3_qksmd")
+shader_parameter/speed = null
+
+[sub_resource type="SphereMesh" id="SphereMesh_kt8kw"]
+material = SubResource("ShaderMaterial_vdr46")
+radius = 0.08
+height = 0.08
+radial_segments = 4
+rings = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ohex"]
 render_priority = 0
 shader = ExtResource("4_x5g5k")
 shader_parameter/speed = null
 shader_parameter/colorseed = null
 
-[sub_resource type="SphereMesh" id="SphereMesh_kt8kw"]
-material = SubResource("ShaderMaterial_21oj3")
-radius = 0.125
-height = 0.15
-radial_segments = 4
-rings = 3
+[sub_resource type="SphereMesh" id="SphereMesh_kqomh"]
+material = SubResource("ShaderMaterial_0ohex")
+radius = 0.1
+height = 0.1
+radial_segments = 6
+rings = 5
 
 [node name="CustomStarMap" type="Node3D"]
 script = ExtResource("1_jy7im")
@@ -48,4 +61,6 @@ preprocess = 371.5
 speed_scale = 5.1
 collision_base_size = 0.24
 process_material = SubResource("ParticleProcessMaterial_3k54v")
+draw_passes = 2
 draw_pass_1 = SubResource("SphereMesh_kt8kw")
+draw_pass_2 = SubResource("SphereMesh_kqomh")

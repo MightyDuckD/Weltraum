@@ -1,7 +1,7 @@
 extends Node
 class_name Gamestate
 
-var fuel = 100.0
+var fuel = 10000.0
 var tankSize = 100.0
 var speed = 50.0
 var damage = 0.0
@@ -57,6 +57,6 @@ func toggle_engine(power):
 
 
 func print_my_debug():
-	var debug = "val: " + str(engineRunning) + "\t" + str(speed)
+	var debug = "val: " + str(engineRunning) + "\t" + str(speed) + "\t" + str(enginePower)
 
 	print(debug)
