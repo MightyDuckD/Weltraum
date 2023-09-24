@@ -76,7 +76,7 @@ func update_ui():
 	
 	$GUI/EnginePower.button_pressed = state.engineRunning
 	$Ship/EngineToggle.setPressed(state.engineRunning)
-	$Ship/EngineToggle.setText("Engine started")
+	$Ship/EngineToggle.setText("Engine start/stop")
 	$Ship/Upgrade.setText("Upgrade!")
 	
 	$CustomStarMap.set_speed(state.speed)
